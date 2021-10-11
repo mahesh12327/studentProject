@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import "./Signup.css";
 
 const Signup = (props) => {
   const [signupUserName, setSignupUserName] = useState("");
@@ -16,40 +17,42 @@ const Signup = (props) => {
   };
 
   return (
-    <div className="Login container w-50 mt-3">
+    <div className="Signup container border rounded">
       <form onSubmit={submitHandler}>
-        <h2 className="text-center">Signup</h2>
-        <div className="mb-3 row">
-          <label htmlFor="staticEmail" className="col-sm-2 col-form-label">
+        <h2 className="text-center signup-text">Signup</h2>
+        <div className="row item">
+          <label htmlFor="staticEmail" className="col-sm-5 col-form-label">
             UserName
           </label>
-          <div className="col-sm-8">
+          <div className="col-sm-6">
             <input
               type="text"
               className="form-control"
               id="staticEmail"
               value={signupUserName}
+              placeholder="Enter Username"
               onChange={(event) => setSignupUserName(event.target.value)}
               required
             />
           </div>
         </div>
-        <div className="mb-3 row">
-          <label htmlFor="inputPassword" className="col-sm-2 col-form-label">
+        <div className="row item">
+          <label htmlFor="inputPassword" className="col-sm-5 col-form-label ">
             Password
           </label>
-          <div className="col-sm-8">
+          <div className="col-sm-6">
             <input
               type="password"
               className="form-control"
               id="inputPassword"
               value={signupPassword}
+              placeholder="Enter Password"
               onChange={(event) => setSignupPassword(event.target.value)}
               required
             />
           </div>
         </div>
-        <div className="text-center">
+        <div className="text-center item mb-3">
           <button type="submit" className="btn btn-primary">
             Signup
           </button>

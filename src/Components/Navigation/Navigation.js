@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import "./Navigation.css";
 
 const Navigation = (props) => {
   const [signupActive, setSignupActive] = useState(false);
@@ -15,10 +16,20 @@ const Navigation = (props) => {
     setLoginActive(true);
     setSignupActive(false);
   };
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    props.logout();
+  };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom navi">
       <div className="container">
-        <a className="navbar-brand text-warning h1" href="/">
+        <a
+          className="navbar-brand text-warning h1"
+          href="/"
+          onClick={(event) => {
+            event.preventDefault();
+          }}
+        >
           Student Site
         </a>
         <button
@@ -32,29 +43,42 @@ const Navigation = (props) => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a
-                className={signupActive ? "nav-link active" : "nav-link"}
-                aria-current="page"
-                href="/"
-                onClick={signupHandler}
-              >
-                Signup
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className={loginActive ? "nav-link active" : "nav-link"}
-                href="/"
-                onClick={loginHandler}
-              >
-                Login
-              </a>
-            </li>
-          </ul>
-        </div>
+        {!props.isLogin && (
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <a
+                  className={signupActive ? "nav-link active" : "nav-link"}
+                  aria-current="page"
+                  href="/"
+                  onClick={signupHandler}
+                >
+                  Signup
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={loginActive ? "nav-link active" : "nav-link"}
+                  href="/"
+                  onClick={loginHandler}
+                >
+                  Login
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
+        {props.isLogin && (
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <a className="nav-link active" href="/" onClick={logoutHandler}>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );

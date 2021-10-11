@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import "./Login.css";
 
 const Login = (props) => {
   const [loginUserName, setLoginUserName] = useState("");
@@ -15,40 +16,53 @@ const Login = (props) => {
     setLoginPassword("");
   };
   return (
-    <div className="Login container w-50 mt-3">
+    <div className="Login container border rounded">
       <form onSubmit={submitHandler}>
-        <h2 className="text-center">Login</h2>
-        <div className="mb-3 row">
-          <label htmlFor="staticEmail" className="col-sm-2 col-form-label">
+        <h2 className="text-center login-text">Login</h2>
+        <div className="row item">
+          <label htmlFor="staticEmail" className="col-sm-5 col-form-label">
             UserName
           </label>
-          <div className="col-sm-8">
+          <div className="col-sm-6">
             <input
               type="text"
               className="form-control"
               id="staticEmail"
               value={loginUserName}
-              onChange={(event) => setLoginUserName(event.target.value)}
+              placeholder="Enter Username"
+              onChange={(event) => {
+                setLoginUserName(event.target.value);
+                props.changeNotification();
+              }}
               required
             />
           </div>
         </div>
-        <div className="mb-3 row">
-          <label htmlFor="inputPassword" className="col-sm-2 col-form-label">
+        <div className="row item">
+          <label htmlFor="inputPassword" className="col-sm-5 col-form-label">
             Password
           </label>
-          <div className="col-sm-8">
+          <div className="col-sm-6">
             <input
               type="password"
               className="form-control"
               id="inputPassword"
               value={loginPassword}
-              onChange={(event) => setLoginPassword(event.target.value)}
+              placeholder="Enter Password"
+              onChange={(event) => {
+                setLoginPassword(event.target.value);
+                props.changeNotification();
+              }}
               required
             />
           </div>
         </div>
-        <div className="text-center">
+        {props.error && (
+          <p className="text-danger text-center mt-3 lead">
+            UserName or Password is Wrong
+          </p>
+        )}
+        <div className="text-center item mb-3">
           <button type="submit" className="btn btn-primary">
             Login
           </button>
