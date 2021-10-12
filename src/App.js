@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import Login from "./Components/Login/Login";
 import Navigation from "./Components/Navigation/Navigation";
 import Signup from "./Components/Signup/Signup";
@@ -26,6 +27,10 @@ function App() {
     getRequest();
   }, []);
 
+  useEffect(() => {
+    postHttpRequest(studentSignupDetails);
+  }, [studentSignupDetails]);
+
   const signupHandler = () => {
     setIsSignUp(true);
     setIsLogin(false);
@@ -45,9 +50,6 @@ function App() {
     );
     console.log(response);
   };
-  useEffect(() => {
-    postHttpRequest(studentSignupDetails);
-  }, [studentSignupDetails]);
 
   const postLoginDetails = (event) => {
     const userPresent = studentSignupDetails.some(
@@ -96,7 +98,7 @@ function App() {
           changeNotification={notificationHandler}
         ></Login>
       )}
-      {loginSuccess && <h1 className="container text-center mt-3">Welcome</h1>}
+      {loginSuccess && <Dashboard></Dashboard>}
     </div>
   );
 }

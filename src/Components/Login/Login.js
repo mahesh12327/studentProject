@@ -4,16 +4,27 @@ import "./Login.css";
 const Login = (props) => {
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [loginUserNameValid,setLoginUserNameValid]=useState(false);
+  const [loginPasswordValid,setLoginPasswordValid]=useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const loginDetails = {
-      userName: loginUserName,
-      password: loginPassword,
-    };
-    props.loginDetails(loginDetails);
-    setLoginUserName("");
-    setLoginPassword("");
+    if(loginUserName===''){
+      setLoginUserNameValid(true);
+    }
+    if(loginPassword===''){
+      setLoginPasswordValid(true);
+    }
+    if(loginUserName!=='' && loginPassword!==''){
+      const loginDetails = {
+        userName: loginUserName,
+        password: loginPassword,
+      };
+      props.loginDetails(loginDetails);
+      setLoginUserName("");
+      setLoginPassword("");
+    }
+    
   };
   return (
     <div className="Login container border rounded">
@@ -33,10 +44,12 @@ const Login = (props) => {
               onChange={(event) => {
                 setLoginUserName(event.target.value);
                 props.changeNotification();
+                setLoginUserNameValid(false);
               }}
-              required
+              
             />
           </div>
+          {loginUserNameValid && <p className="text-danger text-center mt-2 lead">Enter valid username</p>}
         </div>
         <div className="row item">
           <label htmlFor="inputPassword" className="col-sm-5 col-form-label">
@@ -52,10 +65,12 @@ const Login = (props) => {
               onChange={(event) => {
                 setLoginPassword(event.target.value);
                 props.changeNotification();
+                setLoginPasswordValid(false);
               }}
-              required
+              
             />
           </div>
+          {loginPasswordValid && <p className="text-danger text-center mt-2 lead">Enter valid password</p>}
         </div>
         {props.error && (
           <p className="text-danger text-center mt-3 lead">

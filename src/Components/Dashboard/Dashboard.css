@@ -1,0 +1,20 @@
+.Dashboard {
+  width: 60%;
+}
+
+.link a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.75rem;
+}
+
+.link a:first-child {
+  padding-left: 20px;
+}
+.link a:last-child {
+  padding-right: 20px;
+}
+
+.options {
+  height: 80px;
+}
