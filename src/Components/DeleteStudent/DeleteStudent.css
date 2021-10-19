@@ -1,0 +1,13 @@
+.DeleteStudent {
+  height: 400px;
+}
+
+.myTable {
+  color: rgb(70, 70, 70);
+}
+
+@media only screen and (max-width: 600px) {
+  .DeleteStudent {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,28 @@
+.MobileNav {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.75)
+  ) !important;
+}
+
+.nav-link {
+  color: #d1d1d1;
+}
+
+.close-btn {
+  text-align: end;
+  margin: 20px;
+}
+
+.mobile-link {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.mobile-link:hover {
+  color: white;
+}

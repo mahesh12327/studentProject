@@ -1,0 +1,16 @@
+.EditStudent {
+  height: 400px;
+}
+
+.myTable {
+  color: rgb(70, 70, 70);
+}
+
+@media only screen and (max-width: 600px) {
+  .EditStudent {
+    font-size: 0.7rem;
+  }
+  button {
+    font-size: 0.7rem !important;
+  }
+}

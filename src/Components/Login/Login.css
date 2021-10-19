@@ -1,17 +1,48 @@
 .Login {
-  margin-top: 100px;
-  width: 40%;
-  box-shadow: 3px 3px 10px 1px rgb(61, 61, 61);
+  margin-top: 45px;
+  background-color: #bbbbbb;
+  color: rgb(0, 0, 0);
+  border-radius: 35px;
+  padding: 15% 15%;
 }
 
-.login-text {
-  margin: 40px 0px;
+.loginForm {
+  padding: 5px;
 }
 
 .item {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-label {
-  padding-left: 50px !important;
+.checkbox {
+  display: inline;
+  padding-left: 5px;
+  color: #363636;
+}
+
+.didnt-signup {
+  font-size: 0.85rem;
+  padding-left: 15px;
+  display: inline;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: #777777;
+}
+
+.didnt-signup a {
+  display: inline;
+}
+
+.last-form-sec {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr;
+}
+
+@media only screen and (max-width: 600px) {
+  .Login {
+    padding: 15% 10%;
+    margin-bottom: 30px;
+  }
 }

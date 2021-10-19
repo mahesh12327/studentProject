@@ -1,0 +1,37 @@
+span {
+  font-family: "Scheherazade New", serif;
+  font-size: xx-large;
+}
+
+.Header {
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.Head {
+  padding: 15px 0px;
+  text-align: center;
+}
+
+.menu {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  span {
+    font-size: 1.2rem;
+  }
+  .menu {
+    display: block;
+  }
+  .menu:hover {
+    cursor: pointer;
+  }
+  .Header {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 4fr 1fr;
+    justify-items: center;
+  }
+}

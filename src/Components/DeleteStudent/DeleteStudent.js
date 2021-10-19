@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import studentContext from "../Store/Context";
-import "./ViewStudent.css";
+import "./DeleteStudent.css";
 
-const ViewStudent = () => {
+const DeleteStudent = () => {
   const ctx = useContext(studentContext);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
 
   return (
-    <div className="ViewStudent">
+    <div className="DeleteStudent">
+      {deleteSuccess && (
+        <p className="success-registration">Deleted Successfully !!</p>
+      )}
       <h2 className="text-dark mb-3">Student List</h2>
       <table className="table table-striped ">
         <thead className="myTable">
@@ -15,6 +19,8 @@ const ViewStudent = () => {
             <th scope="col">Rollno</th>
             <th scope="col">Class</th>
             <th scope="col">Address</th>
+
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +31,19 @@ const ViewStudent = () => {
                 <td>{student.rollNo}</td>
                 <td>{student.studentClass}</td>
                 <td>{student.address}</td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      ctx.deleteStudent(student.id);
+                      setDeleteSuccess(true);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
@@ -34,4 +53,4 @@ const ViewStudent = () => {
   );
 };
 
-export default ViewStudent;
+export default DeleteStudent;

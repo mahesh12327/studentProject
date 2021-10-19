@@ -1,4 +1,27 @@
 .Welcome {
   margin-top: 70px;
-  width: 65%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1.15fr 1fr;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 23px;
+  height: 80vh;
+}
+
+.introduction {
+  padding: 100px 40px 40px 40px;
+  color: rgb(197, 197, 197);
+}
+
+@media only screen and (max-width: 600px) {
+  .Welcome {
+    margin-bottom: 120px;
+    display: block;
+    height: auto;
+  }
+
+  .introduction {
+    display: none;
+  }
 }
