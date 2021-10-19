@@ -43,6 +43,10 @@
 @media only screen and (max-width: 600px) {
   .Login {
     padding: 15% 10%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    /* height: 70vh; */
+  }
+  .register-btn {
+    color: rgb(74, 112, 238) !important;
   }
 }

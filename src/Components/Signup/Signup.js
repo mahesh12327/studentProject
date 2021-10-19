@@ -108,7 +108,7 @@ const Signup = (props) => {
           <p className="didnt-signup">
             Already Registered?
             <a
-              className="nav-link"
+              className="nav-link logging-btn"
               aria-current="page"
               href="/"
               onClick={loginHandler}
